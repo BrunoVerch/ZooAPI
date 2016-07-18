@@ -1,0 +1,8 @@
+{
+    "esnext": true,
+    "eqeqeq": true,
+    "latedef": true,
+    "quotmark": "single",
+    "varstmt" : true,
+    "globalstrict" : true
+}
