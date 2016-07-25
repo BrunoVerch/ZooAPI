@@ -5,18 +5,23 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node build/server.js"
+    "start": "node src/server.js"
   },
   "author": "BrunoVerch",
   "license": "ISC",
   "dependencies": {
     "boom": "^3.2.2",
+    "ejs": "^2.4.2",
     "hapi": "^13.5.0",
+    "inert": "^4.0.1",
     "joi": "^9.0.0",
     "joi-sequelize": "^0.2.6",
     "mysql": "^2.11.1",
+    "qr-image": "^3.1.0",
+    "randomstring": "^1.1.5",
     "sequelize": "^3.23.4",
-    "source-map-support": "^0.4.2"
+    "source-map-support": "^0.4.2",
+    "vision": "^4.1.0"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
