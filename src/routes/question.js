@@ -8,7 +8,7 @@ let questionJoi = db.JoiModels['Question'];
 module.exports = [
 	{
 		method: 'GET',
-		path  : '/question',
+		path  : '/api/question',
 		config: {
 			handler: questionController.getQuestion
 		}

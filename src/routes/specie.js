@@ -11,7 +11,7 @@ delete specieJoiWithImage.pathImage;
 module.exports = [
 		{
 			method: 'GET',
-			path  : '/specie/{id}',
+			path  : '/api/specie/{id}',
 			config: {
 				handler: specieController.findById,
 				validate: {
@@ -35,7 +35,7 @@ module.exports = [
 			method: 'GET',
 			path  : '/specie',
 			config: {
-				handler: specieController.find
+				handler: specieController.get
 			}
 		}
 	];

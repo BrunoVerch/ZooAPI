@@ -16,6 +16,14 @@ module.exports = function(sequelize, DataTypes) {
 				notNull : true
 			}
 		},
+		pathQrCode: {
+			type     : DataTypes.STRING,
+			allowNull: false,
+			validate : {
+				notEmpty: true,
+				notNull : true
+			}
+		},
 		popularName: {
 			type     : DataTypes.STRING(100),
 			allowNull: false,
@@ -42,14 +50,6 @@ module.exports = function(sequelize, DataTypes) {
 				notNull		  : true
 			}
 		},
-		height: {
-			type     : DataTypes.STRING,
-			allowNull: false,
-			validate : {
-				isAlphanumeric: true,
-				notNull		  : true
-			}
-		},
 		instictionThreat: {
 			type     : DataTypes.ENUM('Pouco preocupante','Quase ameaçada','Vulnerável','Em perigo','Criticamente em perigo','Extinta na natureza','Extinto'),
 			allowNull: false,
@@ -65,14 +65,6 @@ module.exports = function(sequelize, DataTypes) {
 			}
 		},
 		feed: {
-			type     : DataTypes.STRING,
-			allowNull: false,
-			validate : {
-				isAlphanumeric: true,
-				notNull		  : true
-			}
-		},
-		color: {
 			type     : DataTypes.STRING,
 			allowNull: false,
 			validate : {

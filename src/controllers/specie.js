@@ -20,8 +20,8 @@ class SpecieController {
 			});
 	};
 
-	static find(request, reply){
-
+	static get(request, reply){
+		return reply.view('specie-register');
 	};
 
 	static create(request, reply){
