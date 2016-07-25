@@ -15,8 +15,8 @@ var paths = {
 
 gulp.task('start', function() {
 	nodemon({
-	    script: 'build/server.js',
-	    ext: 'js html',
+	    script: 'src/server.js',
+	    ext: 'js html ejs',
 	    tasks: ['lint']
 	})
 });
