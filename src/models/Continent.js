@@ -3,10 +3,10 @@
 module.exports = function(sequelize, DataTypes) {
 	
 	return sequelize.define('Continent', {
-		idContinent: {
+		id: {
 			type         : DataTypes.INTEGER,
-			primarykey   : true,
-			autoincrement: true
+			primaryKey   : true,
+			autoIncrement: true
 		},
 		name: {
 			type     : DataTypes.STRING,

@@ -3,51 +3,45 @@
 module.exports = function(sequelize, DataTypes) {
 
 	return sequelize.define('Specie', {
-		idSpecie: {
+		id: {
 			type         : DataTypes.INTEGER,
-			primarykey   : true,
-			autoincrement: true
+			primaryKey   : true,
+			autoIncrement: true
 		},
 		pathImage: {
 			type     : DataTypes.STRING,
 			allowNull: false,
 			validate : {
-				notEmpty: true,
-				notNull : true
+				notEmpty: true
 			}
+		},
+		pathAudio: {
+			type     : DataTypes.STRING,
+			allowNull: false
 		},
 		pathQrCode: {
 			type     : DataTypes.STRING,
-			allowNull: false,
-			validate : {
-				notEmpty: true,
-				notNull : true
-			}
+			allowNull: true
 		},
 		popularName: {
 			type     : DataTypes.STRING(100),
 			allowNull: false,
 			validate : {
-				isAlpha : true,
-				notEmpty: true,
-				notNull : true
+				notEmpty: true			
 			}
 		},
 		scientificName: {
 			type     : DataTypes.STRING(200),
 			allowNull: false,
 			validate : {
-				isAlpha : true,
-				notEmpty: true,
-				notNull : true
+				notEmpty: true				
 			}
 		},
 		weight: {
 			type     : DataTypes.STRING,
 			allowNull: false,
 			validate : {
-				isAlphanumeric: true,
-				notNull		  : true
+				notEmpty:true
 			}
 		},
 		instictionThreat: {
@@ -68,24 +62,21 @@ module.exports = function(sequelize, DataTypes) {
 			type     : DataTypes.STRING,
 			allowNull: false,
 			validate : {
-				isAlphanumeric: true,
-				notNull		  : true
+				notEmpty:true
 			}
 		},
 		habitat: {
 			type     : DataTypes.STRING,
 			allowNull: false,
 			validate : {
-				isAlphanumeric: true,
-				notNull		  : true
+				notEmpty:true
 			}
 		},
 		interistingFacts: {
 			type     : DataTypes.STRING(800),
 			allowNull: false,
 			validate : {
-				isAlphanumeric: true,
-				notNull		  : true
+				notEmpty: true
 			}
 		},
 		classification: {

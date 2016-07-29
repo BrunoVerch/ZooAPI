@@ -3,10 +3,10 @@
 module.exports = function(sequelize, DataTypes) {
 	
 	return sequelize.define('Theme', {
-		idTheme: {
+		id: {
 			type         : DataTypes.INTEGER,
-			primarykey   : true,
-			autoincrement: true
+			primaryKey   : true,
+			autoIncrement: true
 		},
 		description: {
 			type     : DataTypes.STRING,

@@ -3,10 +3,10 @@
 module.exports = function(sequelize, DataTypes) {
 
 	return sequelize.define('Event', {
-		idEvent: {
+		id: {
 			type         : DataTypes.INTEGER,
 			primaryKey   : true,
-			autoincrement: true
+			autoIncrement: true
 		},
 		publicationDate: {
 			type     : DataTypes.DATEONLY,

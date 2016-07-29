@@ -3,10 +3,10 @@
 module.exports = function(sequelize, DataTypes) {
 	
 	return sequelize.define('Question', {
-		idQuestion: {
+		id: {
 			type         : DataTypes.INTEGER,
-			primarykey   : true,
-			autoincrement: true
+			primaryKey   : true,
+			autoIncrement: true
 		},
 		query: {
 			type     : DataTypes.STRING,

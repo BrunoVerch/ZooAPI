@@ -2,10 +2,10 @@
 
 module.exports = function(sequelize, DataTypes) {
 	return sequelize.define('Rule', {
-		idRule: {
+		id: {
 			type         : DataTypes.INTEGER,
-			primarykey   : true,
-			autoincrement: true
+			primaryKey   : true,
+			autoIncrement: true
 		},
 		pathImage: {
 			type     : DataTypes.STRING,
