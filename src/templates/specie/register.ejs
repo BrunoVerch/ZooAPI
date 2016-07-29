@@ -1,14 +1,14 @@
 <div class="row  margin-top">
     <h5 class="center-align">Cadastro de Espécie</h5>
-    <form action="" class="col s12">
+    <form action="/specie" name="specieform" method="POST" class="col s12" enctype="multipart/form-data">
 
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" id="popularName" class="validate" maxlength="100" required>
+                <input type="text" name="popularName" class="validate" maxlength="100" required>
                 <label for="popularName" data-error="Nome popular é obrigatório" data-success="">Nome Popular</label>
             </div>
             <div class="input-field col s6">
-                <input type="text" id="scientificName" class="validate" maxlength="100" required>
+                <input type="text" name="scientificName" class="validate" maxlength="100" required>
                 <label for="scientificName" data-error="Nome científico é obrigatório" data-success="">Nome Científico</label>
             </div>
         </div>
@@ -16,7 +16,7 @@
         <div class="row">
 
             <div class="input-field col s3">
-                <select id="classification">
+                <select name="classification" required>
                     <option value="" disabled selected>Escolha uma opção</option>
                     <option value="Peixes">Peixes</option>
                     <option value="Anfíbios">Anfíbios</option>
@@ -29,7 +29,7 @@
             </div>
 
             <div class="input-field col s3">
-                <select id="habit">
+                <select name="habit" required>
                     <option value="" disabled selected>Escolha uma opção</option>
                     <option value="Diurno">Diurno</option>
                     <option value="Noturno">Noturno</option>
@@ -38,7 +38,7 @@
             </div>
 
             <div class="input-field col s3">
-                <select id="typeFeed">
+                <select name="typeFeed" required>
                     <option value="" disabled selected>Escolha uma opção</option>
                     <option value="Herbívoros">Herbívoros</option>
                     <option value="Carnívoros">Carnívoros</option>
@@ -49,7 +49,7 @@
             </div>
 
             <div class="input-field col s3">
-                <select id="instictionThreat">
+                <select name="instictionThreat" required>
                     <option value="" disabled selected>Escolha uma opção</option>
                     <option value="Pouco preocupante">Pouco preocupante</option>
                     <option value="Quase ameaçada">Quase ameaçada</option>
@@ -66,22 +66,22 @@
 
         <div class="row">
             <div class="input-field col s6">
-                <textarea id="weight" class="materialize-textarea"></textarea>
+                <textarea name="weight" class="materialize-textarea validate" required></textarea>
                 <label for="weight">Características em relação ao peso</label>
             </div>
             <div class="input-field col s6">
-                <textarea id="feed" class="materialize-textarea"></textarea>
+                <textarea name="feed" class="materialize-textarea validate" required></textarea>
                 <label for="feed">Características da alimentação</label>
             </div>
         </div>
             
         <div class="row">
             <div class="input-field col s6">
-                <textarea id="habitat" class="materialize-textarea validate" required></textarea>
+                <textarea name="habitat" class="materialize-textarea validate" required></textarea>
                 <label for="habitat">Características do habitat</label>
             </div>
             <div class="input-field col s6">
-                <textarea id="interistingFacts" class="materialize-textarea validate" required></textarea>
+                <textarea name="interistingFacts" name="interistingFacts" class="materialize-textarea validate" required></textarea>
                 <label for="interistingFacts">Fatos Interessantes</label>
             </div>
         </div>
@@ -90,7 +90,7 @@
             <div class="file-field input-field">
                 <div class="btn">
                     <span>Imagem</span>
-                    <input type="file" id="image" required>
+                    <input type="file" name="image" required>
                 </div>
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
