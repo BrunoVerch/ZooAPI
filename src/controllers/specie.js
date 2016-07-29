@@ -2,6 +2,9 @@
 
 const db = require('../models/index');
 const Boom = require('boom');
+const imageUpload = require('../services/image');
+const toQrCode = require('../services/qrcode');
+const toAudio = require('../services/textToAudio');
 
 class SpecieController {
 
@@ -21,21 +24,29 @@ class SpecieController {
 	};
 
 	static get(request, reply){
-		return reply.view('specie-register');
+		return reply.view('specie/register');
 	};
 
 	static create(request, reply){
 		let specie = request.payload;
 
-		//TODO: get image from request and save the path
+		specie.pathImage = imageUpload(specie.image);
+		specie.pathAudio = toAudio(specie.interestingFacts);
 
 		db.Specie
 			.build(specie)
 			.save()
 			.then((savedSpecie) => {
-				return reply(savedSpecie);
+				const qrPath = toQrCode(savedSpecie.id);
+
+				savedSpecie.update({
+					pathQrCode: qrPath
+				}).then((specieWithQr) => {
+					return reply('specie/list');
+				});
 			})
 			.catch((err) => {
+				console.log(err);
 				return reply(Boom.badImplementation());
 			})
 	}

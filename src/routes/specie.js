@@ -4,10 +4,6 @@ const specieController = require('../controllers/specie');
 const db = require('../models/index');
 const Joi = require('joi');
 
-let specieJoi = db.JoiModels['Specie'];
-let specieJoiWithImage = specieJoi.include({ image : Joi.any().required() });
-delete specieJoiWithImage.pathImage;
-
 module.exports = [
 		{
 			method: 'GET',
@@ -25,10 +21,12 @@ module.exports = [
 			method: 'POST',
 			path  : '/specie',
 			config: {
-				handler: specieController.create,
-				validate: {
-					payload: specieJoiWithImage
-				}
+				 payload: {
+				 	output: 'stream',
+				 	parse: true,
+				 	allow: 'multipart/form-data'
+				},
+				handler: specieController.create
 			}
 		},
 		{
