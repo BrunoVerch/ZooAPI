@@ -2,14 +2,16 @@ const Ivona = require('ivona-node');
 const fs = require('fs');
 const randomstring = require("randomstring");
 
-var ivona = new Ivona({
+function createAudio(data) {
+
+    const ivona = new Ivona({
         accessKey: 'GDNAIGFLY3V7PBBYLGHQ',
         secretKey: 'zhBrNACdK0q1F4j4DIvtPBVHAogG45/ZqNoJX5bT'
     });
 
-const filePath = '/public/audio/' + randomstring.generate(8) + '.mp3';
+    const filePath = '/audio/' + randomstring.generate(8) + '.mp3';
 
-ivona.createVoice(data, {
+    ivona.createVoice(data, {
         body: {
             voice: {
                 name: 'Vitoria',
@@ -17,4 +19,10 @@ ivona.createVoice(data, {
                 gender: 'Female'
             }
         }
-    }).pipe(fs.createWriteStream(appRoot + filePath, { autoClose: true }));
+    }).pipe(fs.createWriteStream(appRoot + '/public' + filePath, { autoClose: true }));
+
+    return filePath;
+    
+}
+
+module.exports = createAudio;
