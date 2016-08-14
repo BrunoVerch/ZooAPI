@@ -31,9 +31,21 @@ module.exports = [
 		},
 		{
 			method: 'GET',
-			path  : '/specie',
+			path  : '/specie/create',
 			config: {
 				handler: specieController.get
+			}
+		},
+		{
+			method: 'GET',
+			path  : '/specie/list/{page}',
+			config: {
+				handler: specieController.list,
+				validate: {
+					params: {
+						page: Joi.number().integer()
+					}
+				}
 			}
 		}
 	];

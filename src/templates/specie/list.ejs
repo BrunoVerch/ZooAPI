@@ -1,0 +1,47 @@
+<div class="row">
+    <ul class="collection with-header">
+        <li class="collection-header"><h5>Espécies</h5></li>
+        <% for(var i =0;i<species.length;i++) { %>
+            <li class="collection-item avatar">
+                <img src="<%= species[i].pathImage %>" alt="" class="circle">
+
+                <span class="title"><%= species[i].popularName %></span>
+                <p>
+                    <%= species[i].scientificName %>
+                </p>
+                <a href="<%= species[i].pathQrCode %>" target="_blank" class="secondary-content"><i class="material-icons">get_app</i></a>
+            </li>
+        <% } %>
+    </ul>
+</div>
+<div class="row">
+
+    <% if (pageCount > 1) { %>
+	        <ul class="pagination">
+	            <% if (currentPage > 1) { %>
+	                <li><a href="1"><i class="material-icons">chevron_left</i></a></li>
+	            <% } %>
+	            <% var i = 1;
+	            if (currentPage > 5) {
+	                i = +currentPage - 4;
+	            } %>
+	            <% if (i !== 1) { %>
+	                <li class="disabled"><a href="#">...</a></li>
+	            <% } %>
+	            <% for (i; i<=pageCount; i++) { %>
+	                <% if (currentPage == i) { %>
+	                    <li class="active"><a href="<%= i %>"><%= i %></a></li>
+	                <% } else { %>
+	                    <li><a href="<%= i %>"><%= i %></a></li>
+	                <% } %>
+	                <% if (i == (+currentPage + 4)) { %>
+	                    <li class="disabled"><a href="#">...</a></li>
+	                <% break; } %>
+	            <% } %>
+	            <% if (currentPage != pageCount) { %>
+	                <li><a href="<%= pageCount %>"><i class="material-icons">chevron_right</i></a></li>
+	            <% } %>
+	        </ul>
+	    <% } %>
+
+</div>

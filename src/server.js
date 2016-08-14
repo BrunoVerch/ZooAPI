@@ -30,8 +30,9 @@ server.views({
 	layoutPath: Path.join(__dirname, 'templates/layout')
 });
 
+let port = process.env.PORT || 3432;
 server.connection({
-	port: 3432
+	port: port
 });
 
 server.register(Inert, () => {});

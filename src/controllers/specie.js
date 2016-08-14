@@ -27,6 +27,19 @@ class SpecieController {
 		return reply.view('specie/register');
 	};
 
+	static list(request, reply){
+
+		const page = parseInt(request.params.page) || 1;
+
+		db.Specie.findAndCountAll({ offset: (page -1) * 5 ,limit: 5, raw: true })
+				.then(function(data){
+					return reply.view('specie/list', { species: data.rows, currentPage: page, pageCount: data.count / 5});
+				})
+				.catch(function(err){
+					console.log(err);
+				});
+	};
+
 	static create(request, reply){
 		let specie = request.payload;
 
