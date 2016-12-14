@@ -28,11 +28,7 @@ class CuriosityController{
 
     static get(request, reply){
         db.Curiosity
-            .findAll({
-                where: {
-                    status: 'Active'
-                }
-            })
+            .findAll()
             .then((curiosities) => {
                 return reply(curiosities);
             })
