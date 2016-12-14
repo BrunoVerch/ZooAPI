@@ -24,9 +24,6 @@ module.exports = [
 		method: 'GET',
 		path  : '/question/create',
 		config: {
-			auth: {
-				strategy: 'base'
-			},
 			handler: questionController.get
 		}
 	}
