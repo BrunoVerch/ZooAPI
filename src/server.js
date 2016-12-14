@@ -16,7 +16,9 @@ const server = new Hapi.Server({
 			}
 		}
 	}
-}, {cors:true});
+}, {cors: {
+	origin: '*'
+}});
 
 server.register(Vision, () => {});
 
