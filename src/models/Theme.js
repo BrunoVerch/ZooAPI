@@ -17,5 +17,11 @@ module.exports = function(sequelize, DataTypes) {
 				notNull       : true
 			}
 		}
+	}, {
+		classMethods: {
+			associate: function(models) {
+				models.Theme.hasMany(models.Question, { as: 'questoes'});
+			}
+		}
 	});
 }

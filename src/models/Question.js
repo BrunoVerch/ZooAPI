@@ -12,8 +12,7 @@ module.exports = function(sequelize, DataTypes) {
 			type     : DataTypes.STRING,
 			allowNull: false,
 			validate : {
-				isAlphanumeric: true,
-				notEmpty      : true
+				notEmpty: true
 			}
 		},
 		answer: {
@@ -53,12 +52,6 @@ module.exports = function(sequelize, DataTypes) {
 			validate : {
 				isAlphanumeric : true,
 				notEmpty       : true
-			}
-		}
-	}, {
-		classMethods: {
-			associate: function(models){
-				models.Question.hasOne(models.Theme);
 			}
 		}
 	});

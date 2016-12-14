@@ -37,7 +37,7 @@ module.exports = function(sequelize, DataTypes) {
 	}, {
 		classMethods: {
 			associate: function(models){
-					models.Achievement.belongsToMany(models.User, {through: 'UserAchievement'});
+				models.Achievement.belongsToMany(models.User, {through: 'UserAchievement'});
 			}
 		}
 	});

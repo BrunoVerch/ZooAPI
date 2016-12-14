@@ -12,8 +12,7 @@ module.exports = function(sequelize, DataTypes) {
 			type     : DataTypes.DATEONLY,
 			allowNull: false,
 			validate : {
-				isDate : true,
-				notNull: true
+				isDate : true
 			}
 		},
 		title: {
@@ -21,25 +20,22 @@ module.exports = function(sequelize, DataTypes) {
 			allowNull: false,
 			validate : {
 				len     : [10,50],
-				notEmpty: true,
-				notNull : true
+				notEmpty: true
 			}
 		},
 		description: {
 			type     : DataTypes.STRING(500),
 			allowNull: false,
 			validate : {
-				len     : [100,500],
-				notEmpty: true,
-				notNull : true
+				len     : [10,500],
+				notEmpty: true
 			}
 		},
 		pathImage: {
 			type     : DataTypes.STRING,
 			allowNull: false,
 			validate : {
-				notEmpty: true,
-				notNull : true
+				notEmpty: true
 			}
 		}
 	});

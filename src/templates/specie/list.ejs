@@ -1,18 +1,24 @@
 <div class="row">
-    <ul class="collection with-header">
-        <li class="collection-header"><h5>Espécies</h5></li>
-        <% for(var i =0;i<species.length;i++) { %>
-            <li class="collection-item avatar">
-                <img src="<%= species[i].pathImage %>" alt="" class="circle">
-
-                <span class="title"><%= species[i].popularName %></span>
-                <p>
-                    <%= species[i].scientificName %>
-                </p>
-                <a href="<%= species[i].pathQrCode %>" target="_blank" class="secondary-content"><i class="material-icons">get_app</i></a>
-            </li>
-        <% } %>
-    </ul>
+	<% for(var i =0;i<species.length;i++) { %>
+		<div class="card col s3">
+			<div class="card-image waves-effect waves-block waves-light">
+				<img style="height:160px;" class="activator" src="<%= species[i].pathImage %>">
+			</div>
+			<div class="card-content">
+				<span class="card-title grey-text text-darken-4"><%= species[i].popularName %></span>
+				<p>
+					<%= species[i].scientificName %></br>
+					<a href="#" class="activator">Mais opções</a>
+				</p>
+			</div>
+			<div class="card-reveal">
+				<input type="hidden" class="id-specie" value="<%= species[i].id %>" />
+				<span class="card-title grey-text text-darken-4">Ações<i class="material-icons right">close</i></span>
+				<a href="#" class="btnAssociateSpecie">Associar ao zoológico</a>
+				<a href="<%= species[i].pathQrCode %>" style="display:block" target="_blank">Baixar QRCode</a>
+			</div>
+		</div>
+	<% } %>
 </div>
 <div class="row">
 

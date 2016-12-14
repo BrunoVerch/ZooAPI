@@ -33,6 +33,9 @@ module.exports = [
 			method: 'GET',
 			path  : '/specie/create',
 			config: {
+				auth: {
+					strategy: 'base'
+				},
 				handler: specieController.get
 			}
 		},
@@ -40,6 +43,9 @@ module.exports = [
 			method: 'GET',
 			path  : '/specie/list/{page}',
 			config: {
+				auth: {
+					strategy: 'base'
+				},
 				handler: specieController.list,
 				validate: {
 					params: {

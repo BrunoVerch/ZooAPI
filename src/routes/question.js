@@ -8,7 +8,7 @@ let questionJoi = db.JoiModels['Question'];
 module.exports = [
 	{
 		method: 'GET',
-		path  : '/api/question',
+		path  : '/api/question/{difficult}',
 		config: {
 			handler: questionController.getQuestion
 		}
@@ -17,10 +17,17 @@ module.exports = [
 		method: 'POST',
 		path  : '/question',
 		config: {
-			handler: questionController.create,
-			validate: {
-				payload: questionJoi.joi()
-			}
+			handler: questionController.create
+		}
+	},
+	{
+		method: 'GET',
+		path  : '/question/create',
+		config: {
+			auth: {
+				strategy: 'base'
+			},
+			handler: questionController.get
 		}
 	}
 ];

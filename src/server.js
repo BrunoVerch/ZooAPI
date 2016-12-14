@@ -37,6 +37,17 @@ server.connection({
 
 server.register(Inert, () => {});
 
+server.register(require('hapi-auth-cookie'), function (err) {
+    if (err) console.log(err);
+
+    server.auth.strategy('base', 'cookie', {
+      password: 'abcdefghijklmnopqrstuvwxyz123456',
+      redirectTo: '/',
+      isSecure: false
+    });
+
+});
+
 for (let route of routes) {
 	server.route(route);
 }

@@ -6,7 +6,34 @@ const Boom = require('boom');
 class QuestionController{
 
 	static getQuestion(request, reply){
-		return reply('sei la');
+		const difficult = request.params.difficult.toLowerCase();
+		db.Theme
+			.findOne({
+				where: {
+					description: difficult
+				}
+			})
+			.then((theme) => {
+				db.Question
+					.count({
+						where: ["ThemeId = ?", theme.id]
+					})
+					.then((c) => {
+						db.Question
+							.findOne({
+								where: {
+									id: Math.floor(Math.random() * (c - 1) + 1)
+								}
+							})
+							.then((question) => {
+								return reply(question);
+							})
+					})
+			});
+	};
+
+	static get(request, reply){
+		return reply.view('question-curiosity/register');
 	};
 
 	static create(request, reply){
@@ -17,7 +44,7 @@ class QuestionController{
 			.build(question)
 			.save()
 			.then((questionSaved) => {
-				return reply(questionSaved);
+				return reply.view('question-curiosity/register');
 			})
 			.catch((err) => {
 				return reply(Boom.badImplementation());

@@ -1,18 +1,18 @@
 const fs = require('fs');
 
-function uploadFile(file){
+function uploadFile(file, callback){
 
-    var name = file.hapi.filename;
-    var path = appRoot + '/public/images/' + name;
-    var fileStream = fs.createWriteStream(path, {autoClose: true});
+     var name = file.hapi.filename;
+     var path = appRoot + '/public/images/' + name;
+     var fileStream = fs.createWriteStream(path, {autoClose: true});
 
-    fileStream.on('error', function (err) { 
-        console.error(err); 
-    });
+     fileStream.on('error', function (err) { 
+         console.error(err); 
+     });
 
-    file.pipe(fileStream);
+     file.pipe(fileStream);
 
-    return '/images/' + name; 
+     return callback('/images/' + name); 
 }
 
 module.exports = uploadFile;

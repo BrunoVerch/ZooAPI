@@ -10,30 +10,10 @@ module.exports = function(sequelize, DataTypes) {
 		},
 		loginToken: {
 			type     : DataTypes.STRING,
-			allowNull: false,
-			unique	 : true,
-			validate : {
-				notEmpty: true,
-				notNull : true
-			}
+			allowNull: true,
+			unique	 : true
 		},
 		fullName: {
-			type     : DataTypes.STRING,
-			allowNull: false,
-			validate : {
-				notEmpty: true,
-				notNull : true
-			}
-		},
-		firstName: {
-			type     : DataTypes.STRING,
-			allowNull: false,
-			validate : {
-				notEmpty: true,
-				notNull : true
-			}
-		},
-		lastName: {
 			type     : DataTypes.STRING,
 			allowNull: false,
 			validate : {
@@ -50,23 +30,21 @@ module.exports = function(sequelize, DataTypes) {
 				notNull : true
 			}
 		},
-		gender: {
-			type     : DataTypes.STRING,
-			allowNull: false,
-			validate : {
-				isAlpha : true,
-				notEmpty: true,
-				notNull : true
-			}
-		},
 		deviceToken: {
 			type     : DataTypes.STRING,
+			allowNull: true,
+			unique   : true
+		},
+		isEmployee: {
+			type: DataTypes.BOOLEAN,
 			allowNull: false,
-			unique   : true,
-			validate : {
-				notEmpty: true,
-				notNull : true
+			validate: {
+				notNull: true
 			}
+		},
+		uniqueIdentifier: {
+			type: DataTypes.STRING,
+			allowNull: true
 		},
 		registrationDate: {
 			type        : DataTypes.DATEONLY,

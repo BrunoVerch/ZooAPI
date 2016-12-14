@@ -43,10 +43,11 @@ class SpecieController {
 	static create(request, reply){
 		let specie = request.payload;
 
-		specie.pathImage = imageUpload(specie.image);
-		specie.pathAudio = toAudio(specie.interestingFacts);
+		imageUpload(specie.image, function(response){
+			specie.pathImage = response;
+			specie.pathAudio = toAudio(specie.interestingFacts);
 
-		db.Specie
+			db.Specie
 			.build(specie)
 			.save()
 			.then((savedSpecie) => {
@@ -55,13 +56,14 @@ class SpecieController {
 				savedSpecie.update({
 					pathQrCode: qrPath
 				}).then((specieWithQr) => {
-					return reply('specie/list');
+					return reply.redirect('specie/list/1');
 				});
 			})
 			.catch((err) => {
 				console.log(err);
 				return reply(Boom.badImplementation());
-			})
+			});
+		});
 	}
 }
 

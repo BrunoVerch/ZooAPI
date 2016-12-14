@@ -1,6 +1,6 @@
 'use strict';
 
-if(!process.env.NODE_ENV){
+if(process.env.NODE_ENV){
 	module.exports = {
 		name: 'ZooApp',
 		username: 'root',
