@@ -9,6 +9,9 @@ module.exports = [
 			method: 'GET',
 			path  : '/api/specie/{id}',
 			config: {
+				cors: {
+            		origin: ['*']
+        		},
 				handler: specieController.findById,
 				validate: {
 					params: {

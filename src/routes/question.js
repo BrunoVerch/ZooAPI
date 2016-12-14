@@ -10,6 +10,9 @@ module.exports = [
 		method: 'GET',
 		path  : '/api/question/{difficult}',
 		config: {
+			cors: {
+            	origin: ['*']
+        	},
 			handler: questionController.getQuestion
 		}
 	},

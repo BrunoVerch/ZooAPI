@@ -22,6 +22,9 @@ module.exports = [
 		method: 'GET',
 		path: '/api/event',
 		config: {
+			cors: {
+            	origin: ['*']
+        	},
 			handler: eventController.getAll
 		}
 	}
