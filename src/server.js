@@ -15,9 +15,8 @@ const server = new Hapi.Server({
 				relativeTo: Path.join(__dirname,'public')
 			}
 		}
-	},
-	cors: true
-});
+	}
+}, {cors:true});
 
 server.register(Vision, () => {});
 
