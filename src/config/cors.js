@@ -1,5 +1,5 @@
 'use strict';
 
 module.exports = {
-	origin: 'clientURL'
+	origin: '192.168.0.12:8100'
 };
