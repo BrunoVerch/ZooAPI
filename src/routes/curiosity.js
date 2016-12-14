@@ -20,6 +20,9 @@ module.exports = [
 		method: 'GET',
 		path  : '/api/curiosity',
 		config: {
+			cors: {
+            	origin: ['*']
+        	},
 			handler: curiosityController.get
 		}
 	}
