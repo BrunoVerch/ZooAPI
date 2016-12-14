@@ -17,5 +17,12 @@ module.exports = [
 		config: {
 			handler: eventController.get
 		}
+	},
+	{
+		method: 'GET',
+		path: '/api/event',
+		config: {
+			handler: eventController.getAll
+		}
 	}
 ];

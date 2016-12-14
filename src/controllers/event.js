@@ -24,6 +24,20 @@ class EventController{
             });
 	};
 
+    static getAll(request, reply){
+        db.Event.findAll({
+            where: {
+                status: 'Active'
+            }
+        })
+        .then((events) => {
+                return reply(events);
+            })
+            .catch((err) => {
+                return reply(Boom.badImplementation());
+            });
+    }
+
     static get(request, reply){
         db.Event
             .findAll({
