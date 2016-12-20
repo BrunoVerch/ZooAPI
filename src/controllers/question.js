@@ -7,6 +7,7 @@ class QuestionController{
 
 	static getQuestion(request, reply){
 		const difficult = request.params.difficult.toLowerCase();
+		console.log(difficult);
 		db.Theme
 			.findOne({
 				where: {
@@ -14,11 +15,13 @@ class QuestionController{
 				}
 			})
 			.then((theme) => {
+				console.log(theme);
 				db.Question
 					.count({
 						where: ["ThemeId = ?", theme.id]
 					})
 					.then((c) => {
+						console.log(c);
 						db.Question
 							.findOne({
 								where: {
